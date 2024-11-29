@@ -2,12 +2,25 @@ package bank.management.system;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
+import com.toedter.calendar.JDateChooser;
 
-public class signup extends JFrame {
+public class signup extends JFrame implements ActionListener {
 
 	JTextField textname, textfname;
-	JDateChoser 
+
+	JDateChooser dateChooser;
+
+	JRadioButton r1,r2;
+
+	JButton next;
+
+	JTextField textField,textEmail,textAdd,textcity,textPin,textState;
+	JRadioButton m1,m2,m3;
+
+
 
 	Random ran = new Random();
 	long first4 = (ran.nextLong() % 9000L);
@@ -62,16 +75,118 @@ public class signup extends JFrame {
 		dob.setFont(new Font("Raleway",Font.BOLD,20));
 		add(dob);
 
+		dateChooser = new JDateChooser();
+		dateChooser.setForeground(new Color(105,105,105));
+		dateChooser.setBounds(300,340,400,30);
+		add(dateChooser);
+
+		JLabel labelG = new JLabel("Gender");
+		labelG.setFont(new Font("Raleway", Font.BOLD, 20));
+		labelG.setBounds(100,290,200,30);
+		add(labelG);
+
+		r1 = new JRadioButton("Male");
+		r1.setFont(new Font("Raleway", Font.BOLD,14));
+		r1.setBackground(new Color(222,255,228));
+		r1.setBounds(300,290,60,30);
+		add(r1);
+
+		r2 = new JRadioButton("Female");
+		r2.setBackground(new Color(222,255,228));
+		r2.setFont(new Font("Raleway", Font.BOLD,14));
+		r2.setBounds(450,290,90,30);
+		add(r2);
+
+		ButtonGroup buttonGroup = new ButtonGroup();
+		buttonGroup.add(r1);
+		buttonGroup.add(r2);
+
+		JLabel labelEmail = new JLabel("Email address :");
+		labelEmail.setFont(new Font("Raleway", Font.BOLD, 20));
+		labelEmail.setBounds(100,390,200,30);
+		add(labelEmail);
+
+		textEmail = new JTextField();
+		textEmail.setFont(new Font("Raleway",Font.BOLD, 14));
+		textEmail.setBounds(300,390,400,30);
+		add(textEmail);
 
 
+		JLabel labelMs = new JLabel("Marital Status :");
+		labelMs.setFont(new Font("Raleway", Font.BOLD, 20));
+		labelMs.setBounds(100,440,200,30);
+		add(labelMs);
 
+		m1 = new JRadioButton("Married");
+		m1.setBounds(300,440,100,30);
+		m1.setBackground(new Color(222,255,228));
+		m1.setFont(new Font("Raleway", Font.BOLD,14));
+		add(m1);
 
+		m2 = new JRadioButton("Unmarried");
+		m2.setBackground(new Color(222,255,228));
+		m2.setBounds(450,440,100,30);
+		m2.setFont(new Font("Raleway", Font.BOLD,14));
+		add(m2);
 
+		m3 = new JRadioButton("Other");
+		m3.setBackground(new Color(222,255,228));
+		m3.setBounds(635,440,100,30);
+		m3.setFont(new Font("Raleway", Font.BOLD,14));
+		add(m3);
 
+		ButtonGroup buttonGroup1 = new ButtonGroup();
+		buttonGroup1.add(m1);
+		buttonGroup1.add(m2);
+		buttonGroup1.add(m3);
 
+		JLabel labelAdd = new JLabel("Address :");
+		labelAdd.setFont(new Font("Raleway", Font.BOLD, 20));
+		labelAdd.setBounds(100,490,200,30);
+		add(labelAdd);
 
+		textAdd = new JTextField();
+		textAdd.setFont(new Font("Raleway",Font.BOLD, 14));
+		textAdd.setBounds(300,490,400,30);
+		add(textAdd);
 
+		JLabel labelCity = new JLabel("City :");
+		labelCity.setFont(new Font("Raleway", Font.BOLD, 20));
+		labelCity.setBounds(100,540,200,30);
+		add(labelCity);
 
+		textcity = new JTextField();
+		textcity.setFont(new Font("Raleway",Font.BOLD, 14));
+		textcity.setBounds(300,540,400,30);
+		add(textcity);
+
+		JLabel labelPin = new JLabel("Pin Code :");
+		labelPin.setFont(new Font("Raleway", Font.BOLD, 20));
+		labelPin.setBounds(100,590,200,30);
+		add(labelPin);
+
+		textPin = new JTextField();
+		textPin.setFont(new Font("Raleway",Font.BOLD, 14));
+		textPin.setBounds(300,590,400,30);
+		add(textPin);
+
+		JLabel labelstate = new JLabel("State :");
+		labelstate.setFont(new Font("Raleway", Font.BOLD, 20));
+		labelstate.setBounds(100,640,200,30);
+		add( labelstate);
+
+		textState = new JTextField();
+		textState.setFont(new Font("Raleway",Font.BOLD, 14));
+		textState.setBounds(300,640,400,30);
+		add(textState);
+
+		next = new JButton("Next");
+		next.setFont(new Font("Raleway",Font.BOLD, 14));
+		next.setBackground(Color.BLACK);
+		next.setForeground(Color.WHITE);
+		next.setBounds(620,710,80,30);
+		next.addActionListener(this);
+		add(next);
 
 		getContentPane().setBackground((new Color(222,255,228)));
 		setLayout(null);
@@ -80,6 +195,12 @@ public class signup extends JFrame {
 		setVisible(true);
 
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+
+	}
+
 	public static void main(String[] args) {
 
 		new signup();
